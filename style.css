@@ -1,0 +1,41 @@
+body {
+  padding: 30px;
+}
+
+.container {
+  position: relative;
+}
+
+.item {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  border-radius: 50%;
+  line-height: 200px;
+  text-align: center;
+  perspective: 200px;
+  transition: 1s ease-in-out;
+}
+
+.head::after {
+  display: block;
+  content: "앞면 입니다.";
+}
+
+.tail::after {
+  display: block;
+  content: "뒷면 입니다.";
+}
+
+/* hover 사용 후에 가상 클래스 선택자 이용하기. */
+.item:hover::after {
+  transform: rotateY(180deg);
+  backface-visible: hidden;
+  transition: 1s ease-in-out;
+}
+
+.item:hover {
+  transform: rotateY(180deg);
+  transition: 1s ease-in-out;
+}
